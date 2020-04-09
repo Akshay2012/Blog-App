@@ -4,10 +4,11 @@ from . import views
 
 urlpatterns = [
     path('', views.post_list_view.as_view(),name="blog-home"), 
+    path('user/<str:username>', views.user_post_list_view.as_view(),name="user-posts"), 
     path("about/",views.about,name="blog-about"),
     path('post/<int:pk>',views.post_detail_view.as_view(),name='post-detail'),
     path("post/new/",views.post_create_view.as_view(),name="post-create"),
     path('post/update/<int:pk>',views.post_update_view.as_view(),name='post-update'),
-    
+
 ]
 

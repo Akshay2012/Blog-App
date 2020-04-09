@@ -30,8 +30,10 @@
               </button> -->
               <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto">
+                  <a class="nav-item nav-link" href="{% url 'admin:index' %}">Admin</a>
                     <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
                     <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+                    <a class="nav-item nav-link" href="{% url 'post-create' %}">Create Post</a>
                   </div>
 
 

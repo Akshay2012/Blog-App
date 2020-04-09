@@ -3,8 +3,11 @@
 
 {% block content %}
     
-    <h1>BLOG HOME PAGE NIGGA!!</h1>
+    <h1 class="mb-3">Posts By {{ view.kwargs.username }}</h1>
+
+    
     {% for post in posts %}
+
         <!-- <h1>{{ post.title }}</h1>
         <p>By {{ post.author}} on {{ post.date }}</p>
         <p> {{ post.content }} </p> -->
@@ -44,5 +47,5 @@
     {% endif %}
 
   {% endif %}
-
+  
 {% endblock content %}

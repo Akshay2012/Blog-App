@@ -1,11 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from . import models
 from django.views.generic import (CreateView,DeleteView,UpdateView,
                                     ListView,DetailView)
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 #JUST LIKE loginrequired
+
 
 
 
@@ -14,6 +16,22 @@ class post_list_view(ListView):
     template_name="blog/home.html" #app/model_viewtype.html
     context_object_name='posts'
     ordering=['-date_posted']
+    paginate_by=2
+
+
+
+
+class user_post_list_view(ListView):
+    model=models.Post
+    template_name="blog/user_post.html" #app/model_viewtype.html
+    context_object_name='posts'
+    ordering=['-date_posted']
+    paginate_by=2
+
+    def get_queryset(self):
+        user=get_object_or_404(User,username=self.kwargs.get('username'))
+        return models.Post.objects.filter(author=user).order_by("-date_posted")
+
 
 
 
