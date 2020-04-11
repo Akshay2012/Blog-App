@@ -72,7 +72,6 @@ def about(request):
 
 
 
-
 # posts=[
 #         {
 #             "author":"Akshay ",
